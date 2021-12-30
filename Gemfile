@@ -60,3 +60,4 @@ gem 'jquery-rails'
 gem "faker"
 gem "pagy", "~> 5.5"
 gem "pg_search", "~> 2.3"
+gem 'bootstrap', '~> 5.1.3'

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  root 'stocks#index'
+  root 'reports#report2'
+  get 'stocks/index',to:'stocks#index'
 
   resources :stocks
 
