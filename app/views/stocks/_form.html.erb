@@ -1,0 +1,62 @@
+<div class="ui grid">
+  <div class="centered fifteen wide column">
+<%= form_with(model: stock, class: "ui form") do |form| %>
+  <% if stock.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(stock.errors.count, "error") %> prohibited this stock from being saved:</h2>
+
+      <ul>
+        <% stock.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :warehouse %>
+    <%= form.text_field :warehouse, placeholder: "Warehouse (Eg: 1, PROD, 2)" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :item_code %>
+    <%= form.text_field :item_code, placeholder: "Item Code (Eg: 411002-205, 411002-BLK)" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description, placeholder: "Description (Eg: 1, PROD, 2)" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :assortment %>
+    <%= form.number_field :assortment %>
+  </div>
+
+  <div class="field">
+    <%= form.label :item_group %>
+    <%= form.text_field :item_group %>
+  </div>
+
+  <div class="field">
+    <%= form.label :item_unit %>
+    <%= form.text_field :item_unit, placeholder: "Item Unit (Eg: Kg, Litre) " %>
+  </div>
+
+  <div class="field">
+    <%= form.label :stock %>
+    <%= form.text_field :stock, placeholder: "Stock Amount (Eg: 100.5, 2.5)" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :qty_delivery %>
+    <%= form.text_field :qty_delivery, placeholder: "Quantity to be delivered (Eg: 100.5, 2.5)" %>
+  </div>
+
+  <div class="actions">
+      <%= form.submit "Add New Stock", class: "ui submit button"%>
+  </div>
+<% end %>
+  </div>
+</div>
+<br>

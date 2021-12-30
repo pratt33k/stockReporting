@@ -1,0 +1,81 @@
+<p id="notice"><%= notice %></p>
+
+<div class="ui grid">
+  <div class="centered fifteen wide column">
+    <table class="BlackTableFixHead ui tablet stackable striped inverted table">
+      <thead>
+      <tr>
+        <th>No.</th>
+        <th>Item code</th>
+        <th>Description</th>
+        <th>Item unit</th>
+        <th>Subhan Stock(1)</th>
+        <th>Production Stock(PROD)</th>
+        <th>Damaged Stock(19)</th>
+        <th>Expired Stock(20)</th>
+        <th>Others Stock</th>
+        <th>Total Stock</th>
+        <th>Quantity to be delivered</th>
+        <th>Showroom Stock(2)</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <%item_idx = 0 %>
+
+      <% @stocks.each do |stock| %>
+        <tr>
+          <td><%= item_idx+1 %>.</td>
+          <td><%= stock.item_code %></td>
+          <td><%= stock.description %></td>
+          <td><%= stock.item_unit %></td>
+
+          <% if @warehouses_list[item_idx].include?("1") %>
+            <% warehouse_idx = @warehouses_list[item_idx].index("1") %>
+            <td><%= @warehouse_stock_list[item_idx][warehouse_idx] %></td>
+          <% else %><td> - </td>
+          <% end %>
+
+          <% if @warehouses_list[item_idx].include?("PROD") %>
+            <% warehouse_idx = @warehouses_list[item_idx].index("PROD") %>
+            <td><%= @warehouse_stock_list[item_idx][warehouse_idx] %></td>
+          <% else %><td> - </td>
+          <% end %>
+
+          <% if @warehouses_list[item_idx].include?("19") %>
+            <% warehouse_idx = @warehouses_list[item_idx].index("19") %>
+            <td><%= @warehouse_stock_list[item_idx][warehouse_idx] %></td>
+          <% else %><td> - </td>
+          <% end %>
+
+          <% if @warehouses_list[item_idx].include?("20") %>
+            <% warehouse_idx = @warehouses_list[item_idx].index("20") %>
+            <td><%= @warehouse_stock_list[item_idx][warehouse_idx] %></td>
+          <% else %><td> - </td>
+          <% end %>
+
+          <% if @other_list[item_idx] != 0%>
+            <td><%= @other_list[item_idx] %></td>
+          <% else %><td> - </td>
+          <% end %>
+
+          <% if @total_list[item_idx] != 0%><td><%= @total_list[item_idx] %></td>
+          <% else %><td> - </td>
+          <% end %>
+
+          <% if @quantity_to_be_delivered[item_idx] != 0.0 %><td><%= @quantity_to_be_delivered[item_idx] %></td>
+          <% else %><td> - </td>
+          <% end %>
+
+          <% if @warehouses_list[item_idx].include?("2") %>
+            <% warehouse_idx = @warehouses_list[item_idx].index("2") %>
+            <td><%= @warehouse_stock_list[item_idx][warehouse_idx] %></td>
+          <% else %><td> - </td>
+          <% end %>
+        </tr>
+        <% item_idx+= 1 %>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

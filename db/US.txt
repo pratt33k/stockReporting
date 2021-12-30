@@ -1,0 +1,7 @@
+User stories
+Assume that 1 item only comes once in a warehouse
+✔ 1. The report should have the following columns - Item Code, Description, Unit, Qty to be delivered & Showroom fetched directly from the main db.
+2. Rest of the columns include the stock value of different types of Warehouses
+(Grouped by Subhan (1), Production(PROD), Damaged (19), Expired(20), Others) and Total stock value of a particular item.
+✔ 3. Filter Items which has stock > 0 and Item code starting from 4 or 6
+4. Sort by Item Code.
